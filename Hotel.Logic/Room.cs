@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using Hotel.Logic.Common;
 
 namespace Hotel.Logic
 {
-    public class Room : Entity
+    public class Room : AggregateRoot
     {
-        public virtual IList<Reservation> Reservations { get; }
-        public virtual IList<Feature> Features { get; }
-        public virtual RoomType Type { get; }
-        public virtual RoomQuality Quality { get; }
-        public virtual int Capacity { get; }
+        public virtual IList<Reservation> Reservations { get; set; }
+        public virtual IList<Feature> Features { get; set; }
+        public virtual RoomType Type { get; set; }
+        public virtual RoomQuality Quality { get; set; }
+        public virtual int Capacity { get; set; }
 
         public virtual void AddReservation(Reservation reservation)
         {
