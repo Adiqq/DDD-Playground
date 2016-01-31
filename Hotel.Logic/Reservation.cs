@@ -11,23 +11,23 @@ namespace Hotel.Logic
         public virtual DateTime StartDate { get; }
         public virtual DateTime EndDate { get; }
 
-        public void SetClient(Client client)
+        public virtual void SetClient(Client client)
         {
         }
 
-        public void AddGuest(Guest guest)
+        public virtual void AddGuest(Guest guest)
         {
         }
 
-        public void SetRoom(Room room)
+        public virtual void SetRoom(Room room)
         {
         }
 
-        public void SetStartDate(DateTime startDate)
+        public virtual void SetStartDate(DateTime startDate)
         {
         }
 
-        public void SetEndDate(DateTime endDate)
+        public virtual void SetEndDate(DateTime endDate)
         {
         }
     }

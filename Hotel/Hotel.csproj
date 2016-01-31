@@ -282,7 +282,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Hotel.Logic\Hotel.Logic.csproj">
+      <Project>{8B60BDFF-BD26-4221-8F4B-7E3D1839DE4A}</Project>
+      <Name>Hotel.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

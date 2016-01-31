@@ -6,9 +6,9 @@ namespace Hotel.Logic
     {
         public virtual IList<Reservation> Reservations { get; }
         public virtual IList<Feature> Features { get; }
-        public RoomType Type { get; }
-        public RoomQuality Quality { get; }
-        public int Capacity { get; }
+        public virtual RoomType Type { get; }
+        public virtual RoomQuality Quality { get; }
+        public virtual int Capacity { get; }
 
         public virtual void AddReservation(Reservation reservation)
         {

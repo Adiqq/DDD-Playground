@@ -1,10 +1,15 @@
-﻿namespace Hotel.Logic
+﻿using System.Collections;
+using System.Collections.Generic;
+using Hotel.Logic.Common;
+
+namespace Hotel.Logic
 {
-    public class Client : Entity
+    public class Client : AggregateRoot
     {
-        public string Login { get; }
-        public string EMailAdress { get; }
-        public string Name { get; }
-        public string Surname { get; }
+        public virtual string Login { get; set; }
+        public virtual string EMailAdress { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Surname { get; set; }
+        public virtual IList<Reservation> Reservations { get; }
     }
 }

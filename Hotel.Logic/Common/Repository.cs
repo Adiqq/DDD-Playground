@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.Logic.Utils;
 using NHibernate;
 
 namespace Hotel.Logic.Common
@@ -11,7 +12,7 @@ namespace Hotel.Logic.Common
     {
         public T GetById(long id)
         {
-            using (ISession session = null)
+            using (ISession session = SessionFactory.OpenSession())
             {
                 return session.Get<T>(id);
             }
@@ -19,7 +20,7 @@ namespace Hotel.Logic.Common
 
         public void Save(T aggregateRoot)
         {
-            using (ISession session = null)
+            using (ISession session = SessionFactory.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 session.SaveOrUpdate(aggregateRoot);

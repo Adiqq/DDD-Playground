@@ -1,4 +1,6 @@
 ﻿using Hotel;
+using Hotel.Logic;
+using Hotel.Logic.Utils;
 using Microsoft.Owin;
 using Owin;
 
@@ -11,6 +13,11 @@ namespace Hotel
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            Initer.Init(@"Server=.\SQLEXPRESS;Database=Hotel;Trusted_Connection=true");
+
+            var client = new Client {EMailAdress = "test", Login = "test", Name = "test", Surname = "test"};
+            var repo = new ClientRepository();
+            repo.Save(client);
         }
     }
 }
