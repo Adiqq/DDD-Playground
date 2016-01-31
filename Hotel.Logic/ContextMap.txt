@@ -1,0 +1,9 @@
+﻿Pracownicy
+Klienci
+Pokoje
+Cenniki
+Terminy
+Rezerwacje
+Sale konferencyjne
+Imprezy zorganizowane
+Restauracja
