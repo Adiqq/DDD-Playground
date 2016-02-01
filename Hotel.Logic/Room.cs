@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Hotel.Logic.Common;
 
 namespace Hotel.Logic
@@ -9,26 +10,13 @@ namespace Hotel.Logic
         public virtual IList<Feature> Features { get; set; }
         public virtual RoomType Type { get; set; }
         public virtual RoomQuality Quality { get; set; }
-        public virtual int Capacity { get; set; }
-
-        public virtual void AddReservation(Reservation reservation)
-        {
-        }
-
-        public virtual void AddFeature(Feature feature)
-        {
-        }
+        public virtual int Capacity { get; protected set; }
 
         public virtual void SetCapacity(int capacity)
         {
-        }
-
-        public virtual void SetType(RoomType type)
-        {
-        }
-
-        public virtual void SetQuality(RoomQuality quality)
-        {
+            if(capacity <= 0)
+                throw new ArgumentOutOfRangeException();
+            Capacity = capacity;
         }
     }
 }

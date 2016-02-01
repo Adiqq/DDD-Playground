@@ -1,6 +1,6 @@
 ﻿namespace Hotel.Logic
 {
-    public class RoomType : ValueObject<RoomType>
+    public sealed class RoomType : ValueObject<RoomType>
     {
         public static readonly RoomType HotelRoom = new RoomType("HotelRoom");
         public static readonly RoomType ConferenceRoom = new RoomType("ConferenceRoom");
@@ -9,8 +9,7 @@
         private RoomType()
         {
         }
-
-        public RoomType(string name)
+        private RoomType(string name)
         {
             Name = name;
         }

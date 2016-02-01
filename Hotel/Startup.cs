@@ -15,30 +15,31 @@ namespace Hotel
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            Initer.Init(@"Server=.\SQLEXPRESS;Database=Hotel;Trusted_Connection=true");
+            Initer.Init(@"Server=ADWA;Database=Hotel;Trusted_Connection=true");
 
-            var client = new Client { EMailAdress = "test", Login = "test", Name = "test", Surname = "test" };
+            var clientData = new ClientData("test", "test", "test", "test");
+            var client = new Client { ClientData = clientData };
             var repo = new ClientRepository();
             repo.Save(client);
 
             var features = new List<Feature>();
             features.Add(Feature.Bathroom);
-            var room = new Room { Capacity = 5, Quality = RoomQuality.Average, Features = features, Type = RoomType.HotelRoom };
+            var room = new Room { Quality = RoomQuality.Average, Features = features, Type = RoomType.HotelRoom };
+            room.SetCapacity(5);
+
             var roomRepo = new RoomRepository();
             roomRepo.Save(room);
+
             var features2 = new List<Feature>();
             features2.Add(Feature.Bathroom);
             features2.Add(Feature.Tv);
-            var room2 = new Room { Capacity = 2, Quality = RoomQuality.Good, Features = features2, Type = RoomType.HotelRoom };
+            var room2 = new Room { Quality = RoomQuality.Good, Features = features2, Type = RoomType.HotelRoom };
+            room2.SetCapacity(2);
+
             roomRepo.Save(room2);
 
-            var reservation = new Reservation()
-            {
-                Client = client,
-                StartDate = DateTime.Now,
-                EndDate = DateTime.Now,
-                Room = room
-            };
+            var duration = new DayDuration(DateTime.Now, DateTime.Now.AddDays(1));
+            var reservation = new Reservation(client, room, duration);
             var reservationRepo = new ReservationRepository();
             reservationRepo.Save(reservation);
         }

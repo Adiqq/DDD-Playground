@@ -6,10 +6,7 @@ namespace Hotel.Logic
 {
     public class Client : AggregateRoot
     {
-        public virtual string Login { get; set; }
-        public virtual string EMailAdress { get; set; }
-        public virtual string Name { get; set; }
-        public virtual string Surname { get; set; }
-        public virtual IList<Reservation> Reservations { get; }
+        public virtual ClientData ClientData { get; set; }
+        public virtual IList<Reservation> Reservations { get; protected set; }
     }
 }

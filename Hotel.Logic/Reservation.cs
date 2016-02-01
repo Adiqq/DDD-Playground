@@ -1,35 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Hotel.Logic.Common;
 
 namespace Hotel.Logic
 {
     public class Reservation : AggregateRoot
     {
-        public virtual Client Client { get; set; }
-        public virtual IList<Guest> Guests { get; set; }
-        public virtual Room Room { get; set; }
-        public virtual DateTime StartDate { get; set; }
-        public virtual DateTime EndDate { get; set; }
+        public virtual Client Client { get; protected set; }
+        public virtual ISet<Guest> Guests { get; protected set; }
+        public virtual Room Room { get; protected set; }
+        public virtual DayDuration Duration { get; protected set; }
 
-        public virtual void SetClient(Client client)
+        protected Reservation()
         {
+        }
+
+        public Reservation(Client client, Room room, DayDuration duration)
+        {
+            Client = client;
+            Room = room;
+            SetDuration(duration);
+            Guests = new HashSet<Guest>();
         }
 
         public virtual void AddGuest(Guest guest)
         {
+            if (Guests.Add(guest) == false)
+            {
+                throw new InvalidOperationException();
+            }
         }
 
-        public virtual void SetRoom(Room room)
+        public virtual void SetDuration(DayDuration duration)
         {
-        }
-
-        public virtual void SetStartDate(DateTime startDate)
-        {
-        }
-
-        public virtual void SetEndDate(DateTime endDate)
-        {
+            if(duration.Days == 0)
+                throw new ArgumentOutOfRangeException();
+            Duration = duration;
         }
     }
 }

@@ -20,8 +20,11 @@ namespace Hotel.Logic
                     comp.Map(x => x.Name);
                     comp.Map(x => x.Surname);
                 });
-            Map(x => x.EndDate);
-            Map(x => x.StartDate);
+            Component(x => x.Duration, y =>
+            {
+                y.Map(x => x.StartDate);
+                y.Map(x => x.EndDate);
+            });
         }
     }
 }

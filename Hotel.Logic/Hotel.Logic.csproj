@@ -53,11 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="ClientData.cs" />
     <Compile Include="ClientMap.cs" />
     <Compile Include="ClientRepository.cs" />
     <Compile Include="Common\AggregateRoot.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\Repository.cs" />
+    <Compile Include="DayDuration.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

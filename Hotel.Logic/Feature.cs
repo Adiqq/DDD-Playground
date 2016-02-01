@@ -9,7 +9,7 @@
         {
         }
 
-        public Feature(string name)
+        private Feature(string name)
         {
             Name = name;
         }

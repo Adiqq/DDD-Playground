@@ -12,10 +12,13 @@ namespace Hotel.Logic
         public ClientMap()
         {
             Id(x => x.Id);
-            Map(x => x.EMailAdress);
-            Map(x => x.Login);
-            Map(x => x.Name);
-            Map(x => x.Surname);
+            Component(x => x.ClientData, y =>
+            {
+                y.Map(x => x.Login);
+                y.Map(x => x.EMailAdress);
+                y.Map(x => x.Name);
+                y.Map(x => x.Surname);
+            });
         }
     }
 }
