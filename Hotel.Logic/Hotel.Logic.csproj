@@ -52,25 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientData.cs" />
-    <Compile Include="ClientMap.cs" />
-    <Compile Include="ClientRepository.cs" />
+    <Compile Include="Core\Client.cs" />
+    <Compile Include="Core\ClientData.cs" />
+    <Compile Include="Mappings\ClientMap.cs" />
+    <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Common\AggregateRoot.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\Repository.cs" />
-    <Compile Include="DayDuration.cs" />
-    <Compile Include="Feature.cs" />
-    <Compile Include="Guest.cs" />
+    <Compile Include="Core\DayDuration.cs" />
+    <Compile Include="Core\Feature.cs" />
+    <Compile Include="Core\Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="ReservationMap.cs" />
-    <Compile Include="ReservationRepository.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="RoomMap.cs" />
-    <Compile Include="RoomQuality.cs" />
-    <Compile Include="RoomRepository.cs" />
-    <Compile Include="RoomType.cs" />
+    <Compile Include="Core\Reservation.cs" />
+    <Compile Include="Mappings\ReservationMap.cs" />
+    <Compile Include="Repositories\ReservationRepository.cs" />
+    <Compile Include="Core\Room.cs" />
+    <Compile Include="Mappings\RoomMap.cs" />
+    <Compile Include="Core\RoomQuality.cs" />
+    <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Core\RoomType.cs" />
     <Compile Include="Common\ValueObject.cs" />
     <Compile Include="Utils\Initer.cs" />
     <Compile Include="Utils\SessionFactory.cs" />
@@ -81,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hotel.DTO\Hotel.DTO.csproj">
+      <Project>{9d388372-2306-49e8-88ec-ad87e7d890c1}</Project>
+      <Name>Hotel.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
